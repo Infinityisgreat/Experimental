@@ -9,18 +9,3 @@ This bot is a more unique bot than most other discord bots because it has its de
 # Contacting
 For Contacting please add on discord this user down below:<br />
 ![image (13)](https://user-images.githubusercontent.com/67851958/190812493-8f4af2e2-5a0b-46e1-9531-f65470105c94.png)
-=======
-Thank you for looking at my bot the links are below.
-![image (13)](https://user-images.githubusercontent.com/67851958/190812493-8f4af2e2-5a0b-46e1-9531-f65470105c94.png) <br />
-![image (14)](https://user-images.githubusercontent.com/67851958/190813943-0dc9c7a1-b274-414e-b3d5-b118fd1001cf.png)
->>>>>>> 4cfa396de7d8b93b45c3990e4546818184737fa0
-
-
-
-
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 4cfa396de7d8b93b45c3990e4546818184737fa0
