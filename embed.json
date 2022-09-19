@@ -1,0 +1,33 @@
+{
+    "content": "You can~~not~~ do `this`.```py\nAnd this.\nprint('Hi')```\n*italics* or _italics_     __*underline italics*__\n**bold**     __**underline bold**__\n***bold italics***  __***underline bold italics***__\n__underline__     ~~Strikethrough~~",
+    "embeds": [
+        {
+            "title": "Gay Detector",
+            "description": ":rainbow: **You are 90% gay**",
+            "color": 16065893,
+            "timestamp": "2022-09-18T04:04:08.812Z",
+            "url": "https://discord.com",
+            "author": {
+                "name": "mans",
+                "url": "https://discord.com",
+                "icon_url": ""
+            },
+            "thumbnail": {
+                "url": ""
+            },
+            "image": {
+                "url": ""
+            },
+            "footer": {
+                "text": "mans",
+                "icon_url": "https://c.tadst.com/gfx/600x337/rainbow.jpg?1"
+            },
+            "fields": [
+                {
+                    "name": "Don't be angry it's ok to be gay",
+                    "value": " "
+                }
+            ]
+        }
+    ]
+}

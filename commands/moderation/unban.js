@@ -1,0 +1,87 @@
+const Discord = require("discord.js");
+const { MessageEmbed } = require("discord.js");
+const { Color } = require("../../config.js");
+
+const { PermissionFlagsBits, PermissionsBitField } = require('discord.js');
+
+
+module.exports = {
+  name: "unban",
+  aliases: [],
+  description: "Unban A Member!",
+  usage: "Unban <Member ID>",
+  run: async (client, message, args) => {
+    //Start
+    message.delete();
+    if (!message.member.permissions.has([PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers]))
+      return message.channel.send(
+        `You Don't Have Permission To Use This Command!`
+      );
+
+    if (!args[0])
+      return message.channel.send(
+        `Please Give Me Member ID That You Want To Unban!`
+      );
+
+    if (isNaN(args[0])) return message.channel.send(`Please Give Me Valid ID!`);
+
+    if (args[0] === message.author.id)
+      return message.channel.send(`You Are Already Unban!`);
+
+    if (args[0] === message.guild.ownerId)
+      return message.channel.send(`Server Owner Is Already Unban!`);
+
+    if (args[0] === client.user.id)
+      return message.channel.send(`I Am Already Unban!`);
+
+    let FetchBan = await message.guild.bans.fetch();
+
+    let Member;
+    Member =
+      FetchBan.find(
+        b => b.user.username.toLowerCase() === args[0].toLocaleLowerCase()
+      ) ||
+      FetchBan.get(args[0]) ||
+      FetchBan.find(
+        bm => bm.user.tag.toLowerCase() === args[0].toLocaleLowerCase()
+      );
+
+    if (!Member)
+      return message.channel.send(
+        "Please Give Valid Member ID Or Member Is Not Banned!"
+      );
+
+    let Reason = args.slice(1).join(" ") || "No Reason Provided!";
+
+    try {
+      message.guild.members.unban(Member.user.id, Reason);
+    } catch (error) {
+      return message.channel.send(
+        `I Can't Unban That Member Maybe Member Is Not Banned Or Some Error!`
+      );
+    }
+// https://c.tenor.com/V7cHxMXwENQAAAAC/trollmites-unbanned.gif -- GIFY
+
+
+const { EmbedBuilder } = require("discord.js")
+
+// inside a command, event listener, etc.
+const embed = new EmbedBuilder()
+	.setColor(0x0099FF)
+	.setTitle('Member UnBanned')
+	.setAuthor({ name: 'Expiremental 2022' })
+	.setDescription(`${Member.username} has been banned!`)
+    .addFields(
+		{ name: 'Moderator', value: `${message.author.tag} ${message.author.id} `, Inline: true },
+		{ name: 'UnBanned Member', value: `${Member.user.tag} (${Member.user.id}`, inline: true },
+		{ name: 'Reason', value: `${Reason || "No Reason Provided!"}`, inline: true }
+	)
+	.setTimestamp()
+    .setImage("https://c.tenor.com/V7cHxMXwENQAAAAC/trollmites-unbanned.gif")
+	.setFooter({ text: 'Expiremental', iconURL: "https://icon-library.com/images/dev-icon/dev-icon-8.jpg" });
+
+    message.channel.send({ embeds: [embed] });
+    return;
+
+    //End
+}};
